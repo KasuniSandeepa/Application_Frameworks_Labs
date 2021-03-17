@@ -1,0 +1,20 @@
+{
+  "name": "lab4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" :  "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KasuniSandeepa/AF-Lab4.git"
+  },
+  "author": "Kasuni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KasuniSandeepa/AF-Lab4/issues"
+  },
+  "homepage": "https://github.com/KasuniSandeepa/AF-Lab4#readme"
+}
