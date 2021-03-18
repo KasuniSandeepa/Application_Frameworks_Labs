@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab1</title>
+    <script>
+        //This is a git demo for the lab
+
+        //declaring variables
+        let i = "Hello";
+
+        //create function
+        function printMe(){
+
+            console.log("Hello")
+        }
+
+        //create a function as a variable
+        let printHello = function(){
+
+            console.log("Hello World")
+        };
+
+        //   printHello();
+
+        let printHello1 = function(x){
+
+            return x;
+        }
+
+        printHello1(printHello);
+
+        let printMe1 = function(x){
+            return "Hello "+x;
+        }
+
+        document.write(printMe1("Kamal"));
+
+        let display = function(x){
+            document.write(`<h1>${x}</h1>`);
+        }
+
+        display(printMe1("Kamal"));
+
+        //2.create JSON objects
+        let student = {
+            first:"Kamal",
+            second:"Perera",
+            age:44,
+            welocme:function(){
+                return `${this.first} is ${this.age} years old`;
+            }
+        };
+
+        document.write(student.welocme());
+
+        //3.
+        //global variable
+        window.vehicleName = "Toyota";
+
+        let printVehicleName = function(vname){
+            document.write(vname);
+        }
+
+        printVehicleName(window.vehicleName);
+
+        let Vehicle = {
+            vehicleName:"Nisan",
+            getVehicleName : function(){
+                printVehicleName(this.vehicleName);
+            }
+        }
+
+        printVehicleName(vehicleName);
+        Vehicle.getVehicleName();
+
+
+        document.write();
+
+        //4.
+        let tax = function(taxPercentage){
+
+            let amount1 = 1000;
+            let Amount = function(amount){
+
+                amount = amount + amount * taxPercentage;
+                return amount;
+            }();
+
+            return Amount(this.amount1);
+        };
+
+        document.write(`${tax(100)}`);
+
+
+
+
+        /*function printHello(){
+         document.write("Hello World");
+        }
+
+        function printHell(int i){
+         document.write("Hello World");
+        }
+
+        //3rd question
+        let vehicleName = "Car"
+        function printvehicleName(){
+
+         document.write(vehicleName);
+
+        }
+
+        let Vehicle = {
+
+         vehicleName:"Car",
+         getVehicleName = function(){
+
+             return printvehicleName($this.vehicleName);
+
+         }
+     }
+     document.write(printvehicleName(vehicleName));
+     document.write(Vehicle.getVehicleName());*/
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
