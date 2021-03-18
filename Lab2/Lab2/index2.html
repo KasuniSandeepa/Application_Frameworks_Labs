@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 2 .1</title>
+</head>
+<body>
+<script>
+
+    /*function getValue(callback){
+        let value=10;
+        setTimeout(function (){
+            value = 5;
+            callback(value)
+        },1000)
+        //console.log(value);
+        return value;
+    }
+
+    let display = function(value){
+        console.log(value);
+    }
+
+    //getValue(display);
+    console.log(getValue(display));
+*/
+    /*function getPromise(){
+        let value = 50;
+        return new Promise(function (resolve, reject){
+            setTimeout(function(){
+                value = 20;
+                resolve(value);
+            },1000)
+        })
+
+        console.log(value);
+    }
+
+    getPromise().then(function (value){
+        console.log(value);
+    })
+
+    getPromise();
+
+    function getAsync(){
+        let value=1000;
+        setTimeout(async function(){
+            value=500;
+            console.log(value);
+        },1000)
+    }
+    */
+
+
+    function getValue(){
+        let value=0;
+        return new Promise((resolve , reject )=>{
+            setTimeout(function(){
+                value=10;
+                resolve(value);
+            },1000);
+        });
+    }
+
+    function getNewValue(value){
+        return new Promise((resolve, reject) => {
+            setTimeout(function(){
+                resolve(value*100);
+            },1000);
+        });
+    }
+
+    function setValue(value){
+        return value+1999;
+    }
+
+    async function print(){
+        let value = await getValue();
+        value = await getNewValue(value);
+        return value;
+    }
+    print().then(value=>setValue(value)).then(value => console.log(value));
+
+    const persons = {
+        organization:'Science',
+        people:['John' , 'Jane'],
+        print:function (){
+           this.people.forEach(
+               value => {
+                   console.log(value,this.organization);
+               }
+           ) ;
+        }
+    };
+
+    persons.print();
+
+    getValue().then(function (value){
+        return getNewValue(value);
+    }).then(function (value){
+        return setValue(value);
+    }).then(function (value){
+        console.log(value);
+    });
+
+    function Vehicle(type){
+        this.type = type,
+            Vehicle.vehicleCount++
+    }
+
+    Vehicle.vehicleCount = 0;
+    Vehicle.prototype,drive = function(){
+        console.log("Driving");
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 2.0</title>
+</head>
+<body>
+<script>
+
+    /*1.Promises and Callbacks*/
+    //Create a function that returns a value after 1 second (return inside a setTimeout)
+    //Pass a callback (function) to the function created in the previous step and execute that
+   // function inside the timeout by passing the value
+/*    let printMe = function(value){
+        console.log(value);
+    }
+
+    let getValue = function(callback){
+        let value=0;
+        setTimeout(function (){
+            value=10;
+            callback(value);
+
+        },2000)
+       // console.log(value);
+        return value;
+    };
+
+    console.log(getValue(printMe));
+
+    //Now return a promise instead of accepting the callback.
+    let getValue1 = function(callback) {
+        let value = 0;
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                value = 10;
+                resolve(value);
+            }, 1000);
+        });
+    }
+
+    getValue1().then(function (value) {
+        console.log(value);
+    });
+
+    //Chain promises
+    getValue1().then(function (value) {
+        return value+100;
+    }).then(function (value){
+        console.log(value);
+    });
+
+    console.log("This typed after");
+*/
+    //2
+    function Vehicle(type){
+        this.type = type;
+        Vehicle.vehicleCount++;
+
+    }
+    Vehicle.prototype.drive = function(){
+        console.log("Vehicle is driving");
+    }
+
+    Vehicle.vehicleCount = 0;
+
+    const vehicle1 = new Vehicle("Car");
+    console.log(vehicle1.type);
+    console.log(Vehicle.vehicleCount);
+    vehicle1.drive();
+
+    const vehicle2 = new Vehicle("Car");
+    console.log(vehicle2.type);
+    console.log(Vehicle.vehicleCount);
+    vehicle1.drive();
+
+    function Car(type){
+        Vehicle.call(this,type)
+    }
+
+    Car.prototype = Object.create(Vehicle.prototype);
+    Car.prototype.constructor = Car;
+
+    Car.prototype.balanceWheels = function(){
+        console.log("Wheels are balanced");
+    }
+
+    const vehicle3 = new Car("car1");
+    console.log(vehicle3.type);
+    console.log(Vehicle.vehicleCount);
+    vehicle3.drive();
+    vehicle3.balanceWheels();
+
+    //use of arrow functions
+    let hello = () =>{
+        console.log("Hello Arrow Functions")
+    }
+
+    hello();
+
+
+
+
+</script>
+
+</body>
+</html>

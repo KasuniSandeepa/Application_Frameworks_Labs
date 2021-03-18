@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function Person(name){
+        this.name = name
+
+
+    };
+
+    Person.prototype.print = function() {
+        console.log("I am a Person.My name is ", this.name);
+    }
+
+    function Teacher(name){
+        Person.call(this,name);
+    }
+
+    Teacher.prototype.print = function (){
+        Person.call(this);
+        console.log("I am a Teacher");
+    }
+
+    Teacher.prototype = Object.create(Person.prototype);
+    Teacher.prototype.constructor = Teacher;
+
+    const namali = new Teacher("Namali");
+    namali.print();
+
+
+
+
+
+</script>
+
+</body>
+</html>
